@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- 
+        Evento é tudo aquilo que possa acontecer com um elemento
+        exp: eventos de mouse
+     -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    
+
+    <div id="area">
+       <h1>Interaja ...</h1>
+    </div>
+
+    <script>
+        var a =  window.document.querySelector('#area h1')
+        a.addEventListener('click', clicou)
+        a.addEventListener('mouseenter', entrou)
+        a.addEventListener('mouseout', saiu)
+
+        function entrou(){
+            a.innerText = 'Entrou';
+            a.style.background = 'green'
+        }
+
+        function clicou(){
+            a.innerText = 'clicou';
+            a.style.background = 'blue'
+        }
+
+
+        function saiu(){
+            a.innerText = 'Saiu';
+            a.style.background = 'red'
+        }
+
+    </script>
+
+</body>
+</html>

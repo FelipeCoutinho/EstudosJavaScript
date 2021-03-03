@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de idade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Verificador de idade</h1>
+    <div id="form">
+        <form action="" id="formVerificador">
+            <label for="idNascimento">Ano de Nascimento: </label>
+            <input type="number" name="" id="idNascimento" min="0" max="2020">
+            
+            <p>
+                <fieldset>
+                    <legend> Genero </legend>
+                    <label for="idGeneroM">M</label>
+                    <input type="radio" id="idGeneroM" min="0" max="130" name="nmGenero" checked>
+                    
+                    <label for="idGeneroF">F</label>
+                    <input type="radio"  id="idGeneroF" min="0" max="130" name="nmGenero">
+                </fieldset>
+            </p>
+            
+            <input type="button" value="varificar" id="enviar"> 
+            
+        </form>
+        
+        <div id="result">
+            <h3>Preecha os dados acima para ver o resultado</h3>
+            
+        </div>
+    </div>
+        <footer> &copy;texte </footer>
+        <script src="./index.js"></script>
+</body>
+</html>
