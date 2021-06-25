@@ -39,7 +39,7 @@ const btnHendleForm = document.querySelector('#adicionarPaciente');
 btnHendleForm.addEventListener('click',function (Event) {
     Event.preventDefault();
 
-    const dataForm = document.querySelector("#formAdiciona")
+    const dataForm = document.querySelector("#formAdiciona");
     const nome  = dataForm.nome.value;
     const peso  = dataForm.peso.value;
     const altura  = dataForm.altura.value;
