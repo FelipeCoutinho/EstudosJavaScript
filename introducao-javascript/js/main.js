@@ -18,13 +18,16 @@ pacientes.forEach(paciente => {
     //verifica se a altura é valida
     if(Number(altura.textContent) < 0 || Number(altura.textContent) >5){
         alturaEhValida = false
+        
+        console.log(paciente);
         tdImc.textContent = "A Altura informada é invalida"
     } 
     
     //verifica se o peso é valida
     if(peso.textContent < 0 || peso.textContent >200){
         tdImc.textContent = "O Peso informado é invalido"
-        pesoEhValido = false
+        paciente.classList.add("pacienteInvalido")
+        console.log(paciente.classList);
     }
     
     if(alturaEhValida == true && pesoEhValido == true){
