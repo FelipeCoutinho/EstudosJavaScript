@@ -34,4 +34,15 @@ pacientes.forEach(paciente => {
         tdImc.textContent = imc.toFixed(2)
     }
 
+    localStorage.setItem("_PACIENTE",'TETE')
 })
+
+
+
+const btnSalvar = document.querySelector("#adicionar-paciente")
+
+function handleClick(Event){
+    Event.preventDefault()
+    console.log('jflsjflksdjflksdjflksdjflsjdflk');
+}
+btnSalvar.addEventListener('click',handleClick(Event))
