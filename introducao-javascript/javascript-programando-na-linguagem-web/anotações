@@ -1,0 +1,77 @@
+https://cursos.alura.com.br/course/javascript-programando-na-linguagem-web
+
+
+eventPrevantedefaull
+
+A página de Jéssica recarrega, porque ela está clicando em um botão dentro de um formulário. Por padrão, os dados são enviados e página é recarregada.
+Se quisermos evitar esse comportamento, a Jéssica deve chamar a função event.preventDefault() dentro de sua função anônima. Desta forma, o form não recarregará a página.
+
+
+    
+O comportamento padrão de um form, quando clicamos em um button ou em um input submit, que está dentro dele, é enviar os dados e recarregar a página. Por isso, a página de Jéssica sempre recarrega quando o usuário clica no botão.
+
+Para evitarmos este comportamento, devemos chamar a função do Javascript que previne o comportamento padrão de certos elementos: event.preventDefault.
+
+Adicionaremos event.preventDefault dentro da função anônima chamada pelo evento click da função:
+
+botao.addEventListener("click", function(event){
+    event.preventDefault();
+
+    console.log(form.tarefa.value);
+    //Código para adicionar na lista de tarefas
+});
+
+
+Observe que passamos event como parâmetro da função. Com isso, incluímos um parâmetro que está sempre presente nas funções executadas quando ocorre um evento.
+
+Como nem sempre event é usado, às vezes, é desnecessário passá-lo para a função. Mas neste caso, é ele quem contém a função .preventDefault(), na qual estamos interessados, logo, precisaremos passá-lo como parâmetro.
+
+Um detalhe interessante é que em certos navegadores, mesmo sem receber o event como parâmetro, a função event.preventDefault() continua funcionando. Isto é uma peculiaridade de certos navegadores modernos, e pode ser que navegadores mais antigos funcionem de forma diferente.
+
+Se nosso objetivo é escrever um código seguindo as boas práticas do mercado, devemos sempre usar event como parâmetro e as funções que são chamadas pelos eventos.
+
+
+
+
+This
+Shakira escreveu o seguinte código para fixar o que aprendeu neste capítulo:
+
+<ul>
+    <li>A</li>
+    <li>B</li>
+    <li>C</li>
+</ul>
+<script>
+
+    var lis = document.querySelectorAll('li');
+
+    for(var i = 0; i < lis.length; i++) {
+
+        lis[i].addEventListener('click', function() {
+
+            // ela deseja exibir o conteúdo da li no clique
+        });
+    }
+</script>COPIAR CÓDIGO
+Aprendemos que document.querySelectorAll aceita receber um seletor CSS. No caso, usamos um seletor de tag que retornará todos os elementos que são tag li. Como o resultado é sempre um conjunto de dados, podemos percorrer cada elemento através do clássico for. Para cada item, adicionamos um evento click.
+
+No entanto, Shakira não sabe como fazer que a função passada para o evento click seja chamada levando em consideração o elemento que foi clicado na lista. Ela precisa referenciar o elemento para poder exibir seu texto através de um alerta.
+
+Qual das opções abaixo completa corretamente o código de Shakira?
+
+<script>
+
+    var lis = document.querySelectorAll('li');
+
+    for(var i = 0; i < lis.length; i++) {
+
+        lis[i].addEventListener('click', function() {
+
+            alert(this.textContent);
+        });
+    }
+</script>
+
+Todo evento disparado em JavaScript possui um contexto que é acessível através da função executada quando o evento for disparado.Na função, acessamos o contexto através do objeto implícito this. Ele é uma referência para o elemento do DOM que esta recebendo o evento, logo, sua natureza é dinâmica, ou seja, se clicarmos no primeiro elemento da lista o this será o primeiro elemento, se clicarmos no último ele será o último. É a natureza dinâmica do this que nos permite utilizar a mesma função em diferentes contextos.
+
+Uma das formas para que o evento click funcione tanto para os elementos já existentes quanto para os novos elementos é utilizar delegação de eventos.
