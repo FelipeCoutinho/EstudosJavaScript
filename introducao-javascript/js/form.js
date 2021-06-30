@@ -115,12 +115,14 @@ filter.addEventListener("input", function () {
     if (this.value.length > 0) {
         pacientes.forEach(paciente => {
 
-            const pacienteFiltrado = paciente.querySelector(".info-nome");
+            const nome = paciente.querySelector(".info-nome");
 
-            if (filter.value != pacienteFiltrado.textContent) {
-                paciente.classList.add('invisivel');
-            } else {
+            let expressao = new RegExp(this.value, "i")
+
+            if (expressao.test(nome.textContent)) {
                 paciente.classList.remove('invisivel');
+            } else {
+                paciente.classList.add('invisivel');
             }
         })
     } else {
