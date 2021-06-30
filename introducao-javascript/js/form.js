@@ -1,19 +1,20 @@
-
 const btnHendleForm = document.querySelector('#adicionarPaciente');
+
 btnHendleForm.addEventListener('click', function (Event) {
     Event.preventDefault();
 
     const dataForm = document.querySelector("#formAdiciona");
     const paciente = getDadosPaciente(dataForm);
-
-    const table = document.querySelector("table")
-    const tr = montaTr(paciente)
-
-    table.appendChild(tr)
-
+    adicionaPaciente(paciente)
     dataForm.reset()
     removeMensagemError()
 });
+
+function adicionaPaciente(paciente) {
+    const table = document.querySelector("table")
+    table.appendChild(montaTr(paciente))
+
+}
 
 const removoPacientes = document.querySelectorAll('table');
 
@@ -73,7 +74,6 @@ function pacienteEhValido(paciente) {
     if (paciente.peso == "" || paciente.altura == "") {
         error.push("Informe os campos peso e altura")
         exibeMensagemError(error)
-        return fal;
     }
 
     if (!validaPeso(paciente.peso)) {
@@ -107,7 +107,7 @@ function removeMensagemError() {
     ul.innerHTML = ""; // controla o html interno do elelmento
 }
 
-//Busca de Paciente
+//Filtro de Paciente
 const filter = document.querySelector("#filtrarTabela");
 filter.addEventListener("input", function () {
 
@@ -132,3 +132,32 @@ filter.addEventListener("input", function () {
         })
     }
 })
+
+//Busca Pacientes   AJAX
+const buscaPaciente = document.querySelector("#buscarPacientes")
+
+buscaPaciente.addEventListener("click", buscaPacientes)
+
+function buscaPacientes() {
+    let url = `https://api-pacientes.herokuapp.com/pacientes`
+
+    var xhr = new XMLHttpRequest()
+
+    xhr.open("GET", url);
+
+    xhr.addEventListener('load', function () {
+        if (xhr.status == 200) {
+            const data = xhr.responseText
+            const pacientes = JSON.parse(data)
+
+            pacientes.forEach(paciente => {
+                adicionaPaciente(paciente)
+            })
+        } else {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+        }
+    })
+
+    xhr.send()
+}
