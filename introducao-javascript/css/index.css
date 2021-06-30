@@ -149,3 +149,17 @@ button:disabled {
 	text-align: center;
 	border-radius: 20px;
 }
+
+.fadeOut {
+	opacity: 0;
+	transition: 0.5s;
+}
+
+.filterT {
+	margin: 0px 10px 10px 0px;
+	padding: 5px;
+}
+
+.invisivel {
+	display: none;
+}
