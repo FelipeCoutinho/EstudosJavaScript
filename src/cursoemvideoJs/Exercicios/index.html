@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <title>Aula 06</title>
+    <style>
+        
+        *{
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+
+        div#sidenavegation{
+
+            background-color: black;
+            width: 100px;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+
+    <script>
+        function menuLateral(){
+            let navLateral = document.getElementById('sidenavegation')
+            navLateral.style.width ='200px'
+
+            document.body.style.marginLeft = -'200px'
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <div id="sidenavegation" onmousemove="menuLateral()">
+
+        </div>
+    </header>
+    <div id="corpo">
+        <button onclick="menuLateral()"></button>
+    </div>
+    <footer>
+
+    </footer>
+
+</body>
+</html>
